@@ -7,6 +7,7 @@
 \usepackage{wrapfig}
 \usepackage{longtable}
 %\usepackage[utf8x]{inputenc}
+\usepackage[colorinlistoftodos]{todonotes}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 \usepackage{subcaption}
 %\usepackage{comment}
@@ -18,6 +19,9 @@
 
 %other useful macros
 %\newcommand\degree{\ensuremath{^{\circ}}}
+\newcommand{\todoajm}[1]{\todo[color=green]{\@AJM: #1}}
+\newcommand{\todobmc}[1]{\todo[color=red]{\@BMC: #1}}
+\newcommand{\todomch}[1]{\todo[color=blue]{\@MCH: #1}}
 
 
 \author{Benjamin M. Comer}
@@ -105,7 +109,7 @@ Experimental studies from the mid 1990's to the mid 2000's show that on a reduce
 Several other factors have been observed to play an important role in aqueous TiO$_2$ photochemistry. The formation of hydroxyl radicals is known to occur in both rutile and anatase \cite{Ishibashi_2000,Xiang_2011}, and these radicals participate in a number of oxidation reactions \cite{Ishibashi_2000}. Furthermore, the influence of both surface and bulk defects such as oxygen vacancies can enhance adsorption and influence photocatalytic activity \cite{Yan_2013}.
 The field of TiO$_2$ photocatalysis and surface science is vast, and a thorough review is beyond the scope of this work; the reader is referred to published reports and review articles to gain a more complete view. \cite{Henderson_2011,Diebold2003,Benkoula2015,Pang2008,Pang_2013}
 
-In this work we present an initial computational investigation of photocatalytic nitrogen reduction and oxidation on the rutile TiO$_2$(110) surface. The availability of adsorbed nitrogen is investigated under aqueous and gas-phase conditions, and the thermodynamic stability of adsorbed intermediates for nitrogen reduction and oxidation are investigated. We utilize ab initio thermodynamics \cite{Reuter_2001,Reuter_2005} and the simple but effective ``computational hydrogen electrode'' (CHE) approach \cite{Calle_Vallejo_2012} that has proven useful in understanding the oxygen reduction \cite{Norskov_2004}, oxygen evolution \cite{Man_2011}, CO$_2$ reduction \cite{Peterson_2010}, and nitrogen reduction \cite{Skulason_2012} reactions. Furthermore, the the BEEF-vdW error estimation functional is utilized to asses the robustness of the conclusions. The results indicate that nitrogen adsorption is more favorable under gas-phase conditions, providing a simple explanation for the improved experimental performance. However, the computational evidence refutes the hypothesis that the rutile (110) surface is the active site for nitrogen reduction due to the low stability of adsorbed N$_2$H$_{\mathrm{x}}$ and NH$_{\mathrm{x}}$ compounds at the pristine surface and at oxygen vacancy and Fe-substitution sites. In contrast, computational results indicate that nitrogen oxidation to NO is a thermodynamically viable fixation route on rutile (110), and it is hypothesized that the N-N bond is dissociated through an oxidative process and the NO intermediate is subsequently reduced.
+In this work we present an initial computational investigation of photocatalytic nitrogen reduction and oxidation on the rutile TiO$_2$(110) surface. We have hypothesized this to be the active surface as it is the lowest energy surface on rutile and is likely to provide a model for other rutile surfaces\todoajm{added reason we chose (110)}. The availability of adsorbed nitrogen is investigated under aqueous and gas-phase conditions, and the thermodynamic stability of adsorbed intermediates for nitrogen reduction and oxidation are investigated. We utilize ab initio thermodynamics \cite{Reuter_2001,Reuter_2005} and the simple but effective ``computational hydrogen electrode'' (CHE) approach \cite{Calle_Vallejo_2012} that has proven useful in understanding the oxygen reduction \cite{Norskov_2004}, oxygen evolution \cite{Man_2011}, CO$_2$ reduction \cite{Peterson_2010}, and nitrogen reduction \cite{Skulason_2012} reactions. Furthermore, the BEEF-vdW error estimation functional is utilized to asses the robustness of the conclusions. The results indicate that nitrogen adsorption is more favorable under gas-phase conditions, providing a simple explanation for the improved experimental performance. However, the computational evidence refutes the hypothesis that the rutile (110) surface is the active site for nitrogen reduction due to the low stability of adsorbed N$_2$H$_{\mathrm{x}}$ and NH$_{\mathrm{x}}$ compounds at the pristine surface and at oxygen vacancy and Fe-substitution sites. In contrast, computational results indicate that nitrogen oxidation to NO is a thermodynamically viable fixation route on rutile (110), and it is hypothesized that the N-N bond is dissociated through an oxidative process and the NO intermediate is subsequently reduced.
 
 \section{Results and Discussion}
 
@@ -117,9 +121,10 @@ The study of photocatalytic nitrogen fixation on TiO$_2$ is carried out using DF
 \centering
 \includegraphics[width=0.8\textwidth]{figures/surface_phase_diagrams}
 
-\caption{Surface free energy (a,d), coverage (b,e), and coverage probability (c,f) for H$_2$O, N$_2$, O$_2$, and OH as a function of H$_2$O (a-c) and N$_2$ (d-f) chemical potentials. The relevant water potential under gas-phase conditions (0.035 atm) and nitrogen potential under aqueous conditions (0.012 atm) are shown by dashed lines in (a-c) and (d-f) respectively. Nitrogen pressure at aqueous conditions is estimated using Henry's law. The probability of various coverages (c,f) given the uncertainty in the BEEF-vdW functional is calculated using Eq. \ref{eq:prob}.}
+\caption{Surface free energy (a,d), coverage (b,e), and coverage probability (c,f) for H$_2$O, N$_2$, O$_2$, and OH as a function of H$_2$O (a-c) and N$_2$ (d-f) chemical potentials. The relevant water potential under gas-phase conditions (0.035 atm) and nitrogen potential under aqueous conditions (0.012 atm) are shown by dashed lines in (a-c) and (d-f) respectively. Graphs a-c use constant water chemical potential set at 100\% relative humidity of H$_2$O and d-f use constant N$_2$ chemical potential set at atmospheric pressure of N$_2$ (0.8 atm). Nitrogen pressure at aqueous conditions is estimated using Henry's law. The probability of various coverages (c,f) given the uncertainty in the BEEF-vdW functional is calculated using Eq. \ref{eq:prob}.}
 \label{fig:surface_diagram}
 \end{figure}
+\todoajm{modified caption to explain constant chemical potentials assumed.}
 
 
 The literature contains examples of experiments done in aqueous solution\cite{Augugliaro_1982,Hirakawa_2017} and humidified air\cite{Schrauzer_1977,Schrauzer_1983}. Of these, humidified air generally has a higher rate.\cite{Schrauzer_2011} To better understand the difference in performance under aqueous and gas-phase conditions ab-initio thermodynamics \cite{Reuter_2001} have been used to compute surface phase diagrams for rutile (110) as a function of water and nitrogen chemical potentials. Fig. \ref{fig:surface_diagram}a shows the surface free energy (top) and surface coverage (middle) of the reactants available at ambient gas-phase conditions (H$_2$O, N$_2$, O$_2$, OH). The results show that the bare TiO$_2$ surface is dominant at gas-phase conditions. The ensemble of energies from the BEEF-vdW functional can be exploited to evaluate the sensitivity of these coverages to DFT error. The probability analysis (Fig \ref{fig:surface_diagram}a, bottom) suggests that there is a probability of $\approx$ 10\% of having a N$_2$ coverage $>$ 0.25 ML. One interpretation of this probability is that the BEEF-vdW functional is not sufficiently accurate to precisely determine the surface coverage, though the bare surface is the most likely. Another perspective is to view this as a sensitivity analysis of coverage with respect to binding energies of competing surface species. From this view, the results indicate that adsorption sites with slightly higher relative N$_2$ adsorption are likely to have a significant N$_2$ coverage under gas-phase conditions. This could include defect sites or other facets,  although the site must have both stronger absolute binding energies and stronger relative adsorption of N$_2$ vs. H$_2$O. There are likely sites that satisfy this criterion, but their prevalence must also be considered. Regardless of the interpretation, the conclusion is that nitrogen coverages are expected to be relatively low on rutile TiO$_2$ (110) which is unsurprising given the inert nature of N$_2$.
@@ -132,9 +137,10 @@ The surface phase diagrams under aqueous conditions (\ref{fig:surface_diagram}b)
 \centering
 
 \includegraphics[width=0.25\textwidth]{figures/N2_redox_ladder.pdf}
-\caption{Redox couples for nitrogen reduction (red) and oxidation (blue) with required driving force ($\Delta$V). The difference between hydrogen evolution and nitrogen reduction ($\mathrm{\Delta \Delta V_{HER}}$) is shown to highlight the selectivity challenge for nitrogen reduction. Band edges for rutile TiO$_2$ are shown (black bar) for reference (note scale break at 1.75 V).}
+\caption{Redox couples for nitrogen reduction (red) and oxidation (blue) with required driving force ($\Delta$V). The difference between hydrogen evolution and nitrogen reduction ($\mathrm{\Delta \Delta V_{HER}}$) is shown to highlight the selectivity challenge for nitrogen reduction. Band edges for rutile TiO$_2$ were obtained from literature \cite{Nozik_1996}  and are shown (black bar) for reference (note scale break at 1.75 V).}
 \label{fig:redox_ladder}
 \end{figure}
+\todobmc{double check the reference for the band edges}
 
 The electrochemical nitrogen reduction reaction converts nitrogen to ammonia and occurs at an equilibrium potential of 0.05 V vs. RHE (Fig. \ref{fig:redox_ladder}). The proximity of this redox couple to the hydrogen evolution reaction (H$^+$/H$_2$ at 0 V) makes selective reduction of nitrogen to ammonia challenging \cite{Skulason_2012, Montoya_2015,Singh_2017}. Furthermore, the alignment of the rutile TiO$_2$ conduction band edge (Fig. \ref{fig:redox_ladder}) indicates that the available overpotential for nitrogen reduction under photocatalytic conditions is relatively low ($<$0.15 V).  Nonetheless, selective nitrogen reduction has been observed on TiO$_2$ photocatalysts \cite{Schrauzer_1977, Schrauzer_1983,Schrauzer_2011,Augugliaro_1982}. This suggests that identification of the active site for photocatalytic nitrogen reduction may enable the development of improved nitrogen reduction electrocatalysts. In this section we hypothesize that the active site is pristine rutile (110), and examine the binding free energies of intermediates for the dissociative and associative nitrogen reduction pathways.
 
@@ -162,14 +168,16 @@ The associative nitrogen reduction mechanism proceeds via diazene (N$_2$H$_2$) a
 \begin{align}
 	\label{eq:assoc_mech_start}
 	N_2(g)+^*  & \rightarrow N_2^{*} \\
-    N_2^* + ^*  & \rightarrow 2N^*\\
-    2N^* + 2(H^+ + e^-) & \rightarrow 2NH^* \\
-    2NH^* + 2(H^+ + e^-) & \rightarrow 2NH_2^* \\
-    2NH_2^* + 2(H^+ + e^-) & \rightarrow 2NH_3^* \\
-    NH_3^*  & \rightarrow NH_3(g) + ^{*}
+    N_2^* + H^+ + e^-  & \rightarrow NNH^* \\
+    NNH^* + H^+ + e^- & \rightarrow HNNH^* \\
+    HNNH^* + H^+ + e^- & \rightarrow  HNNH_2^* \\
+    HNNH_2^* + H^+ + e^- & \rightarrow H_2NNH_2^* \\
+    H_2NNH_2^* + ^* + H^+ + e^- & \rightarrow NH_2^* + NH_3^* \\
+    NH_2^* + NH_3^* + H^+ + e^- & \rightarrow 2NH_3^*  \\
+    2NH_3^*  & \rightarrow 2NH_3(g) + 2^{*} 
     \label{eq:assoc_mech_finish}
 \end{align}
-
+\todoajm{changed reactions}
 \begin{figure}
 \includegraphics[width=0.9\textwidth]{figures/associative_FED.pdf}
 \caption{Free energy diagram for associative nitrogen reduction at an overpotential ($\eta$) of zero (a) and at the overpotential due to the conduction band edge ($\eta=0.15$ V) (b). The equilibrium potential ($\eta=0$) is computed to be 0.008 V (0.05 V experimentally). The blue error bars represent one standard deviation of the BEEF-vdW energy ensemble. Adsorbed states are labeled, and the full reaction mechanism is listed in equations \ref{eq:assoc_mech_start} - \ref{eq:assoc_mech_finish}.}
@@ -219,8 +227,13 @@ The thermodynamics of nitrogen oxidation intermediates on rutile (110) are shown
 \label{fig:FED_oxid}
 \end{figure}
 
-The computational results provide strong evidence that nitrogen oxidation is thermodynamically favored on the rutile (110) active site, which is at odds with the experimental observation of reduced products on TiO$_2$\cite{Schrauzer_1977,Schrauzer_1983,Augugliaro_1982,Soria_1991,Schrauzer_2011,Hirakawa_2017} One possible explanation is that nitrogen is first oxidized to NO and subsequently reduced to ammonia. The conversion of NO to NH$_3$ is a 5 electron process with a redox potential at 0.71 V vs. RHE, well below the band gap of TiO$_2$\cite{Medford_2017}. 
-%However, nitrate products were not experimentally observed, suggesting that NO* must be strongly adsorbed. This is at odds with the BEEF-vdW free energy of adsorption which is slightly positive, although the large error bar indicates that the possibility of a strongly-bound NO* state cannot be excluded at the GGA level of theory, particularly given the lack of solvation effects and the fact that adsorption energies are typically underestimated with an even number of TiO$_2$ slab layers \cite{Sun2010}. Interestingly, 
+The computational results provide strong evidence that nitrogen oxidation is thermodynamically favored on the rutile (110) active site, which is at odds with the experimental observation of reduced products on TiO$_2$\cite{Schrauzer_1977,Schrauzer_1983,Augugliaro_1982,Soria_1991,Schrauzer_2011,Hirakawa_2017} One possible explanation is that nitrogen is first oxidized to NO and subsequently reduced to ammonia. We have tested the thermodynamic feasibility of this process, the results may be seen in Figure \ref{fig:FED_oxid_red}. The conversion of NO to NH$_3$ is a 5 electron process with a redox potential at 0.71 V vs. RHE, well below the band gap of TiO$_2$\cite{Medford_2017}. Our proposed pathway is quite reasonable from the available data. \todoajm{I added a reference to figure 10 here}
+
+Another possible reason that nitrogen oxides are not often observed could be that the reverse reaction also takes place frequently on the surface. The reaction of NO to N$_2$O and the reaction of N$_2$O to N$_2$ has been observed under UHV conditions by Yates and colleagues.\cite{Rusu2000,Rusu2001} This could help explain the low activities observed experimentally. However, the complete reverse reaction to N$_2$ is quite unlikely, due to the instability of N$_2$ on the surface as has been noted in the de-NO$_x$ literature.\cite{}\todobmc{find the reference for this}
+
+%However, nitrate products were not experimentally observed, suggesting that NO* must be strongly adsorbed. This is at odds with the BEEF-vdW free energy of adsorption which is slightly positive, although the large error bar indicates that the possibility of a strongly-bound NO* state cannot be excluded at the GGA level of theory, particularly given the lack of solvation effects and the fact that adsorption energies are typically underestimated with an even number of TiO$_2$ slab layers \cite{Sun2010}. Interestingly,
+
+
 Titania photocatalysts have been reported to reduce nitrates under aqueous conditions, although selectivity to dinitrogen vs. ammonia varies widely based on preparation conditions and metal dopants \cite{Kobwittaya_2014, Kominami_2010, Ranjit_1997,Shand_2013,Xie_2017,Lozovskii_2009}. Contrarily, oxidation of ammonia has also been reported for TiO$_2$ photocatalysts \cite{Pollema_1992, Wang_1994, Kominami_2014}, as well as simultaneous reduction of nitrate and oxidation of ammonium to N$_2$ \cite{Kominami_2014}. Furthermore, the observation of hydrazine as a product from TiO$_2$ nitrogen photofixation is not explained by this mechanism \cite{Schrauzer_2011}. These conflicting results suggest that other hypotheses should also be considered. In particular, the formation of hydrazine should be examined more closely to determine if hydrazine could be formed through recombination of NH$_x$ species (consistent with the oxidative pathway) or if it is formed associatively (consistent with the reductive pathway). Isotopic scrambling experiments\cite{Urabe_1978} and use of photoelectrochemical applied bias experiments may provide insight into this outstanding question.
 
 \begin{figure}
@@ -260,7 +273,7 @@ where $G_i$ is the formation free energy of species $i$, $G_i^o$ is the ``absolu
 
 
 \subsubsection{Photoelectrochemistry}
-The photoelectrochemical model used assumes that excitation, charge transport, and charge transfer are decoupled from electrochemistry and is largely consistent with the approach reviewed by Hellman and Wang \cite{Hellman2017}. All states involving electrons utilized the CHE model reaction as a reference electrode. This model sets the free energy of reaction hydrogen splitting, reaction \ref{eq:HER}, to zero at a potential of zero. Referencing potentials this way is known as relative to the computational hydrogen electrode (CHE), and is conceptually equivalent to the reference hydrogen electrode (RHE)\cite{Peterson_2010}.
+The photoelectrochemical model used assumes that excitation, charge transport, and charge transfer are decoupled from electrochemistry and is largely consistent with the approach reviewed by Hellman and Wang \cite{Hellman2017}. All states involving electrons utilized the CHE model reaction as a reference electrode. This model sets the free energy of reaction hydrogen splitting, reaction \ref{eq:HER}, to zero at a potential of zero. Referencing potentials this way is known as relative to the computational hydrogen electrode (CHE), and is conceptually equivalent to the reversible hydrogen\todoajm{changed to reversible per reviewer comment} electrode (RHE)\cite{Peterson_2010}.
 
 The energy of each state involving the addition of an electron is varied by an energy of $eU$, where e is the fundamental change and U is the potential relative to this zero point, at potentials other than zero reaction:
 
@@ -269,7 +282,7 @@ The energy of each state involving the addition of an electron is varied by an e
 	\frac{1}{2}H_2\rightarrow H^{+}+e^{-}
 \end{equation}
 
-This model was also used to assess the effect of photo-excited electrons and holes. The locations of the band edges were obtained from the literature \cite{Nozik_1996} and used to set the potentials of the electrons and holes. The potential of holes was set to -0.1V and the potential of excited electrons was set to 2.9V, conserving the experimental value of the band gap at 3 eV \cite{Scanlon_2013}. 
+This model was also used to assess the effect of photo-excited electrons and holes. The locations of the band edges were obtained from the literature \cite{Nozik_1996} and used to set the potentials of the electrons and holes relative to a zero set by the reversible hydrogen electrode.\todoajm{added a few words to try and address reviewer comment. unsure if this is enough} The potential of holes was set to -0.1V and the potential of excited electrons was set to 2.9V, conserving the experimental value of the band gap at 3 eV \cite{Scanlon_2013}. 
 
 \subsubsection{Determination of adsorption sites}
 
