@@ -243,7 +243,7 @@ OLD
 NEW
 > energetics of the process. The latter hypothesis was tested by computing
 > the energetics of the associative mechanism on a slab with an iron
-> substitution defect. Two defects were considered, and Fe$^{4+}$ defect
+> substitution defect. Two defects were considered, an Fe$^{4+}$ defect
 > arising from direct substitution of the 5-fold Ti atom, and an Fe$^{2+}$
 > defect formed by substitution of a Ti atom beneath a bridging O and
 > removal of the bridging O, effectively forming a O-br defect and Fe
@@ -252,20 +252,23 @@ NEW
 > \[fig:FED\_FE\_assoc\] shows the energetics of the associative pathway
 > with an iron-substituted rutile (110) surface (a comparison of the free
 > energy path for the Fe$^{4+}$ defect is available in the Supplementary
-> Information). The limiting potential is comparable to that of the
-> defected surface in Fig. \[fig:FED\_defect\_assoc\] ($\approx$ 1.7V).
-> This supports the hypothesis of Soria et al.[@Soria_1991] that the
-> primary role of iron is to promote charge separation in the bulk
-> structure. The energy required to form this defect was calculated to be
-> 1.8 eV relative to bulk rutile and BCC iron. The energetic penalty of
-> creating this surface site is high and the improvement to the stability
-> of surface intermediates is moderate, indicating this is unlikely to be
-> an active site for nitrogen reduction, though we note that the
-> relatively strong N$_2$ adsorption energy of -0.5 eV favors a higher
-> N$_2$ coverage. The energetics of the associative pathway on
-> Fe-substitution defects is compared to O-br defects and pristine rutile
-> (110) in Fig. \[fig:defect\_effects\]a, illustrating that the
-> Fe-substitution defect has a similar effect to the O-br vacancy.
+> Information). This mechanism is very similar to the mechanism on the
+> pristine and O-br vacancies, with the slight difference that N-NH$_2$ is
+> more stable than HNNH on the Fe defect. The limiting potential of 2.2 eV
+> is comparable to that of the defected surface in Fig.
+> \[fig:FED\_defect\_assoc\] (1.7 eV), but is slightly higher due to the
+> stronger adsorption of N$_2$. The energetics of the associative pathway
+> on Fe-substitution defects are compared directly to O-br defects and
+> pristine rutile (110) in Fig. \[fig:defect\_effects\]a, illustrating
+> that the Fe-substitution defect has a similar effect to the O-br
+> vacancy. The energy required to form this defect was calculated to be
+> 1.1 eV relative to bulk rutile and BCC iron. This moderate formation
+> energy is lower than that of the O-br defect, and N$_2$ adsorbs with a
+> relatively strong binding energy of -0.5 eV. This suggests that Fe
+> surface defects promote the formation of O-br vacancies and adsorption
+> of N$_2$. Nonetheless, the high limiting potential of 2.2 V indicates
+> that the Fe-substitution defect is not active for photocatalytic
+> nitrogen reduction.
 
 Added more discussion of possible implications of hybrid mechanism:
 OLD
@@ -390,29 +393,31 @@ NEW
 > were computed with respect to reference states using the equation:
 > $$\begin{aligned}
 
-Corrected reference state at atmospheric conditions in methods:
+Clarified reference states at atmospheric conditions in methods:
 OLD
-751,752c829,831
-< reference for hydrogen is H$_2$ ($\mu_H = \frac{1}{2} G_{H_2}^o$). In
-< this work no gas-phase corrections (e.g. O$_2$ [@Norskov_2004], CO$_2$
+< reference for oxygen is O$_2$ ($\mu_O = \frac{1}{2} G_{O_2}^o$) and the
+< reference for hydrogen is H$_2$O
+< ($\mu_H = \frac{1}{2} (G_{H_2O}^o - \frac{1}{2} G_{O_2}^o$)). In this
+< work no gas-phase corrections (e.g. O$_2$ [@Norskov_2004], CO$_2$
+< [@Peterson_2010]) are applied since it is difficult to rigorously
+< correct the BEEF-vdW ensembles; the quantification and propagation of
+< error with the BEEF-vdW ensembles will capture these errors to some
+< extent, and overpotentials are defined relative to the equilibrium
+< potential computed by DFT in order to minimize the influence of
+< inaccurate equilibrium potentials from DFT (see subsequent section).
 ---
 NEW
-> reference for hydrogen is H$_2$O
-> ($\mu_H = \frac{1}{2} (G_{H_2O}^o - \frac{1}{2} G_{O_2}^o$)). In this
-> work no gas-phase corrections (e.g. O$_2$ [@Norskov_2004], CO$_2$
-
-Clarified method of calculating overpotential in methods:
-OLD
-< correct the BEEF-vdW ensembles; we expect that the error bars of the
-< BEEF-vdW error ensemble should compensate for these known inaccuracies
-< of DFT.
----
-NEW
-> correct the BEEF-vdW ensembles; the quantification and propagation of
-> error with the BEEF-vdW ensembles will capture these errors to some
-> extent, and overpotentials are defined relative to the equilibrium
-> potential computed by DFT in order to minimize the influence of
-> inaccurate equilibrium potentials from DFT (see subsequent section).
+> reference for oxygen is H$_2$O
+> ($\mu_{H_2O} = \frac{1}{2} G_{H_2O}^o - \mu_H$) and the reference for
+> hydrogen is set by the computational hydrogen electrode
+> ($\mu_H = \frac{1}{2} G_{H_2}^o$ + eU). In this work no gas-phase
+> corrections (e.g. O$_2$ [@Norskov_2004], CO$_2$ [@Peterson_2010]) are
+> applied since it is difficult to rigorously correct the BEEF-vdW
+> ensembles; the quantification and propagation of error with the BEEF-vdW
+> ensembles will capture these errors to some extent, and overpotentials
+> are defined relative to the equilibrium potential computed by DFT in
+> order to minimize the influence of inaccurate equilibrium potentials
+> from DFT (see following section).
 
 Clarified method of calculating overpotential in methods:
 OLD
