@@ -1,3 +1,5 @@
+Figures 2, 3, 7, and 8 have been updated. 
+
 Revised abstract:
 OLD
 <     the BEEF-vdW functional and computational hydrogen electrode is applied
