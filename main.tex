@@ -14,6 +14,18 @@
 \usepackage{makecell}
 \usepackage{multicol}
 
+\setkeys{acs}{doi = true}
+\makeatletter
+\newcommand{\doi}{%
+  \begingroup
+    \let\do\@makeother
+    \dospecials
+    \catcode`\{=1
+    \catcode`\}=2
+    \doi@aux
+}
+\makeatother
+
 %\newcommand*\mycommand[1]{\texttt{\emph{#1}}}
 
 
@@ -23,7 +35,7 @@
 \newcommand{\todobmc}[1]{\todo[color=red]{\@BMC: #1}}
 \newcommand{\todomch}[1]{\todo[color=blue]{\@MCH: #1}}
 
-
+\vspace{10mm}
 \author{Benjamin M. Comer}
 \affiliation[Georgia Institute of Technology]{School of Chemical \& Biomolecular Engineering, Georgia Institute of Technology, 311 Ferst Dr NW, Atlanta, GA, 30318}
 \author{Andrew J. Medford}
@@ -344,7 +356,7 @@ All adsorption energies, vibrational frequencies, and structure images; surface 
 \begin{figure}
 
 \includegraphics[width=8.47cm,height=4.76cm,]{figures/TOC.pdf}
-\caption{Energetics of photocatalytic nitrogen fixation over rutile (110) titania active sites. Photocatalysis provides a route to nitrogen fixation at atmospheric conditions and sustainable fertilizer production.}
+\caption*{Energetics of photocatalytic nitrogen fixation over rutile (110) titania active sites. Photocatalysis provides a route to nitrogen fixation at atmospheric conditions and sustainable fertilizer production.}
 \label{fig:TOC}
 \end{figure}
 
